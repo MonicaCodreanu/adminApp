@@ -57,10 +57,10 @@ const data = [
   //   total: 1200,
   // },
 ];
-function Chart({ aspect }) {
+function Chart({ aspect, title }) {
   return (
     <div className="chart">
-      <div className="title">Last 6 Month Revenue</div>
+      <div className="title">{title}</div>
       <ResponsiveContainer width="100%" aspect={aspect}>
         <AreaChart
           width={730}
