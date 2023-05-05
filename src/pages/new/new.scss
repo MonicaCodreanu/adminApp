@@ -60,6 +60,10 @@
           background-color: gray;
           cursor: pointer;
           margin-top: 10px;
+          &:disabled {
+            background-color: rgba(128, 128, 128, 0.31);
+            cursor: not-allowed;
+          }
         }
       }
     }

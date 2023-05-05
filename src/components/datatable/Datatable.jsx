@@ -1,15 +1,68 @@
 import "./datatable.scss";
 import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { userRows, userColumns } from "../../datatablesource";
+import { userColumns } from "../../datatablesource";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+import {
+  collection,
+  getDoc,
+  deleteDoc,
+  doc,
+  onSnapshot,
+} from "firebase/firestore";
+import { db } from "../../firebase";
 
 function Datatable() {
-  const [data, setData] = useState(userRows);
-  const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // const fetchData = async () => {
+    //   let list = [];
+    //   try {
+    //     const querySnapshot = await getDocs(collection(db, "users"));
+    //     querySnapshot.forEach((doc) => {
+    //       // doc.data() is never undefined for query doc snapshots
+    //       list.push({ id: doc.id, ...doc.data() });
+    //       // console.log(doc.id, " => ", doc.data());
+    //     });
+    //     setData(list);
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // };
+    // fetchData();
+
+    //Listen-Realtime
+    const unsub = onSnapshot(
+      collection(db, "users"),
+      (snapShot) => {
+        let list = [];
+        snapShot.docs.forEach((doc) => {
+          list.push({ id: doc.id, ...doc.data() });
+        });
+        setData(list);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+    return () => {
+      unsub();
+    };
+  }, []);
+
+  const handleDelete = async (id) => {
+    try {
+      await deleteDoc(doc(db, "users", id));
+      setData(data.filter((item) => item.id !== id));
+    } catch (err) {
+      console.log(err);
+    }
   };
+
   const actionColumn = [
     {
       field: "action",
@@ -18,7 +71,10 @@ function Datatable() {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
+            <Link
+              to={`/users/${params.row.id}`}
+              style={{ textDecoration: "none" }}
+            >
               <div className="viewButton">View</div>
             </Link>
             <div
@@ -60,36 +116,3 @@ function Datatable() {
 }
 
 export default Datatable;
-
-// const columns = [
-//   { field: "id", headerName: "ID", width: 70 },
-//   { field: "firstName", headerName: "First name", width: 130 },
-//   { field: "lastName", headerName: "Last name", width: 130 },
-//   {
-//     field: "age",
-//     headerName: "Age",
-//     type: "number",
-//     width: 90,
-//   },
-//   {
-//     field: "fullName",
-//     headerName: "Full name",
-//     description: "This column has a value getter and is not sortable.",
-//     sortable: false,
-//     width: 160,
-//     valueGetter: (params) =>
-//       `${params.row.firstName || ""} ${params.row.lastName || ""}`,
-//   },
-// ];
-
-// const rows = [
-//   { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
-//   { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
-//   { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
-//   { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
-//   { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
-//   { id: 6, lastName: "Melisandre", firstName: null, age: 150 },
-//   { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
-//   { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
-//   { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
-// ];
