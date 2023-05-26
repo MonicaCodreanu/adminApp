@@ -32,30 +32,6 @@ const data = [
     name: "June",
     total: 1700,
   },
-  // {
-  //   name: "July",
-  //   total: 1200,
-  // },
-  // {
-  //   name: "August",
-  //   total: 1200,
-  // },
-  // {
-  //   name: "September",
-  //   total: 1200,
-  // },
-  // {
-  //   name: "October",
-  //   total: 1200,
-  // },
-  // {
-  //   name: "November",
-  //   total: 1200,
-  // },
-  // {
-  //   name: "December",
-  //   total: 1200,
-  // },
 ];
 function Chart({ aspect, title }) {
   return (
@@ -70,8 +46,8 @@ function Chart({ aspect, title }) {
         >
           <defs>
             <linearGradient id="total" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
+              <stop offset="5%" stopColor="#0206c1" stopOpacity={0.8} />
+              <stop offset="95%" stopColor="#0206c1" stopOpacity={0} />
             </linearGradient>
           </defs>
           <XAxis dataKey="name" stroke="gray" />
@@ -81,7 +57,7 @@ function Chart({ aspect, title }) {
           <Area
             type="monotone"
             dataKey="total"
-            stroke="#8884d8"
+            stroke="#0206c1"
             fillOpacity={1}
             fill="url(#total)"
           />

@@ -33,7 +33,7 @@ function Widget({ type }) {
           <ShoppingCartOutlinedIcon
             className="icon"
             style={{
-              color: "goldenrod",
+              color: "#ffb405",
               backgroundColor: "rgba(218,165,32,0.2)",
             }}
           />
@@ -63,7 +63,7 @@ function Widget({ type }) {
           <AccountBalanceWalletOutlinedIcon
             className="icon"
             style={{
-              color: "purple",
+              color: "#0206c1",
               backgroundColor: "rgba(128,0,128,0.2)",
             }}
           />

@@ -1,18 +1,18 @@
-import "./list.scss";
+import "./products.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Datatable from "../../components/datatable/Datatable";
 
-function List() {
+function Products() {
   return (
-    <div className="list">
+    <div className="products">
       <Sidebar />
-      <div className="listContainer">
+      <div className="productsContainer">
         <Navbar />
-        <Datatable type="users" />
+        <Datatable type="products" />
       </div>
     </div>
   );
 }
 
-export default List;
+export default Products;

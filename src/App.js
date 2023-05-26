@@ -3,7 +3,9 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
+import NewProduct from "./pages/newProduct/NewProduct";
 import List from "./pages/list/List";
+import Products from "./pages/products/Products";
 import { userInputs, productInputs } from "./formsource.js";
 import "./styles/dark.scss";
 import { useContext } from "react";
@@ -42,11 +44,13 @@ function App() {
               />
             </Route>
             <Route path="products">
-              <Route index element={<List />} />
+              <Route index element={<Products />} />
               <Route path=":productId" element={<Single />} />
               <Route
                 path="new"
-                element={<New inputs={productInputs} title="Add New Product" />}
+                element={
+                  <NewProduct inputs={productInputs} title="Add New Product" />
+                }
               />
             </Route>
           </Route>

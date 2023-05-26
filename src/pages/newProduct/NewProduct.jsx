@@ -1,21 +1,17 @@
 import { useEffect, useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-import "./new.scss";
-import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
-import { doc, serverTimestamp, setDoc } from "firebase/firestore";
-import { auth, db, storage } from "../../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import "./newProduct.scss";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { db, storage } from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
 
-function New({ inputs, title }) {
+function NewProduct({ inputs, title }) {
   const [file, setFile] = useState("");
   const [data, setData] = useState({});
   const [percentage, setPercentage] = useState(null);
   const navigate = useNavigate();
-
-  console.log(inputs);
 
   useEffect(() => {
     const uploadFile = () => {
@@ -73,16 +69,21 @@ function New({ inputs, title }) {
 
   const handleAdd = async (e) => {
     e.preventDefault();
+    const today = Date.now();
     try {
-      const resp = await createUserWithEmailAndPassword(
-        auth,
-        data.email,
-        data.password
-      );
-      await setDoc(doc(db, "users", resp.user.uid), {
+      const res = await addDoc(collection(db, "products"), {
         ...data,
-        timeStamp: serverTimestamp(),
+        "Order Date": new Timestamp(today / 1000, 0),
       });
+
+      console.log("Added document with ID: ", res.id);
+
+      // const resp = await createUserWithEmailAndPassword(
+      //   auth,
+      //   data.email,
+      //   data.password
+      // );
+
       navigate(-1);
     } catch (err) {
       console.log(err);
@@ -90,27 +91,18 @@ function New({ inputs, title }) {
   };
 
   return (
-    <div className="new">
+    <div className="newProduct">
       <Sidebar />
-      <div className="newContainer">
+      <div className="newProductContainer">
         <Navbar />
         <div className="top">
           <h1>{title}</h1>
         </div>
         <div className="bottom">
-          <div className="left">
-            <img
-              src={
-                file
-                  ? URL.createObjectURL(file)
-                  : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
-              }
-              alt=""
-            />
-          </div>
+          <div className="left"></div>
           <div className="right">
             <form onSubmit={handleAdd}>
-              <div className="formInput">
+              {/* <div className="formInput">
                 <label htmlFor="file">
                   Image: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
@@ -120,7 +112,7 @@ function New({ inputs, title }) {
                   onChange={(e) => setFile(e.target.files[0])}
                   style={{ display: "none" }}
                 />
-              </div>
+              </div> */}
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
@@ -146,4 +138,4 @@ function New({ inputs, title }) {
   );
 }
 
-export default New;
+export default NewProduct;

@@ -1,0 +1,209 @@
+const products = [
+  {
+    name: "Dell Latitude 5490",
+    customer: "John Smith",
+    purchaseDate: "2023-01-05",
+    cost: 1100,
+    paymentMethod: "Credit Card",
+    status: "Approved",
+    trackingID: 1234567
+  },
+  {
+    Product: "HP Elitebook 850 G7",
+    Customer: "Jane Doe",
+    Order Date: "2023-01-20",
+    Value: 1300,
+    Payment Method: "Online Banking",
+    Status: "Pending",
+    Tracking ID: 2345678
+  },
+  {
+    name: "Lenovo ThinkPad T490",
+    customer: "Bob Johnson",
+    purchaseDate: "2023-02-15",
+    cost: 900,
+    paymentMethod: "Cash",
+    status: "Denied",
+    trackingID: 3456789
+  },
+  {
+    name: "Apple MacBook Pro M1",
+    customer: "Samantha Lee",
+    purchaseDate: "2023-02-25",
+    cost: 1800,
+    paymentMethod: "Credit Card",
+    status: "Approved",
+    trackingID: 4567890
+  },
+  {
+    name: "Microsoft Surface Laptop 4",
+    customer: "Andrew Chen",
+    purchaseDate: "2023-02-28",
+    cost: 1200,
+    paymentMethod: "Online Banking",
+    status: "Approved",
+    trackingID: 5678901
+  },
+  {
+    name: "Dell OptiPlex 7090",
+    customer: "Emily Wang",
+    purchaseDate: "2023-03-08",
+    cost: 800,
+    paymentMethod: "Cash",
+    status: "Pending",
+    trackingID: 6789012
+  },
+  {
+    name: "HP EliteDesk 800 G6",
+    customer: "David Kim",
+    purchaseDate: "2023-03-15",
+    cost: 1000,
+    paymentMethod: "Credit Card",
+    status: "Approved",
+    trackingID: 7890123
+  },
+  {
+    name: "Lenovo ThinkCentre M920",
+    customer: "Nadia Rodriguez",
+    purchaseDate: "2023-03-23",
+    cost: 950,
+    paymentMethod: "Online Banking",
+    status: "Denied",
+    trackingID: 8901234
+  },
+  {
+    name: "Apple iMac 24-inch M1",
+    customer: "Jake Smith",
+    purchaseDate: "2023-04-01",
+    cost: 1500,
+    paymentMethod: "Cash",
+    status: "Pending",
+    trackingID: 9012345
+  },
+  {
+    name: "Microsoft Surface Pro 8",
+    customer: "Sara Williams",
+    purchaseDate: "2023-04-10",
+    cost: 1300,
+    paymentMethod: "Credit Card",
+    status: "Approved",
+    trackingID: 1234567
+  },
+  {
+    name: "Dell UltraSharp U2720Q",
+    customer: "Chris Lee",
+    purchaseDate: "2023-04-15",
+    cost: 500,
+    paymentMethod: "Online Banking",
+    status: "Approved",
+    trackingID: 2345678
+  },
+ {
+    name: "Laptop",
+    customer: "John Smith",
+    datePurchased: "2023-01-15",
+    cost: 1200,
+    paymentMethod: "Credit Card",
+    status: "Approved",
+    trackingID: 1234567
+  },
+  {
+    name: "Monitor",
+    customer: "Sarah Johnson",
+    datePurchased: "2023-02-05",
+    cost: 400,
+    paymentMethod: "Online Banking",
+    status: "Approved",
+    trackingID: 2345678
+  },
+  {
+    name: "Printer",
+    customer: "David Lee",
+    datePurchased: "2023-02-05",
+    cost: 300,
+    paymentMethod: "Cash",
+    status: "Pending",
+    trackingID: 3456789
+  },
+  {
+    name: "Desktop Computer",
+    customer: "Anna Chen",
+    datePurchased: "2023-02-15",
+    cost: 1500,
+    paymentMethod: "Credit Card",
+    status: "Denied",
+    trackingID: 4567890
+  },
+  {
+    name: "Wireless Keyboard",
+    customer: "John Smith",
+    datePurchased: "2023-03-01",
+    cost: 50,
+    paymentMethod: "Online Banking",
+    status: "Approved",
+    trackingID: 5678901
+  },
+  {
+    name: "Wireless Mouse",
+    customer: "Sarah Johnson",
+    datePurchased: "2023-03-05",
+    cost: 30,
+    paymentMethod: "Cash",
+    status: "Approved",
+    trackingID: 6789012
+  },
+  {
+    name: "USB Flash Drive",
+    customer: "David Lee",
+    datePurchased: "2023-03-05",
+    cost: 20,
+    paymentMethod: "Credit Card",
+    status: "Pending",
+    trackingID: 7890123
+  },
+  {
+    name: "Headset",
+    customer: "Anna Chen",
+    datePurchased: "2023-04-10",
+    cost: 100,
+    paymentMethod: "Online Banking",
+    status: "Denied",
+    trackingID: 8901234
+  },
+  {
+    name: "External Hard Drive",
+    customer: "John Smith",
+    datePurchased: "2023-04-15",
+    cost: 200,
+    paymentMethod: "Cash",
+    status: "Approved",
+    trackingID: 9012345
+  },
+  {
+    name: "Webcam",
+    customer: "Sarah Johnson",
+    datePurchased: "2023-05-01",
+    cost: 80,
+    paymentMethod: "Credit Card",
+    status: "Approved",
+    trackingID: 1234560
+  },
+  {
+    name: "Wireless Router",
+    customer: "David Lee",
+    datePurchased: "2023-05-05",
+    cost: 150,
+    paymentMethod: "Online Banking",
+    status: "Pending",
+    trackingID: 2345671
+  },
+  {
+    name: "Ethernet Cable",
+    customer: "Anna Chen",
+    datePurchased: "2023-05-05",
+    cost: 10,
+    paymentMethod: "Cash",
+    status: "Denied",
+    trackingID: 3456782
+  },
+   

@@ -13,7 +13,12 @@ function Featured() {
       </div>
       <div className="bottom">
         <div className="featuredChart">
-          <CircularProgressbar value={70} text={"70%"} strokeWidth={5} />
+          <CircularProgressbar
+            value={70}
+            text={"70%"}
+            strokeWidth={10}
+            styles={{ path: { stroke: "#0206c1" }, text: { fill: "#0206c1" } }}
+          />
         </div>
         <p className="title">Total sales made today</p>
         <p className="amount">€420</p>

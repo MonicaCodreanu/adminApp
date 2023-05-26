@@ -2,10 +2,10 @@ body {
   margin: 0;
 }
 .app.dark {
-  background-color: #222;
+  background-color: #160c28;
   color: lightgray;
   .chartGrid {
-    stroke: gray;
+    stroke: lightgray;
   }
   .table {
     background-color: #111;
@@ -14,18 +14,21 @@ body {
     }
   }
   .navbar {
-    color: gray;
+    color: lightgray;
     border-color: #333;
     .search {
       border-color: #333;
     }
   }
   .sidebar {
-    background-color: #222;
+    background-color: #160c28;
   }
   .top {
     .logo {
-      color: gray;
+      color: lightgray;
+    }
+    .icon {
+      color: #999;
     }
   }
   hr {
@@ -38,7 +41,7 @@ body {
       }
 
       .icon {
-        color: #999;
+        color: lightgray;
       }
     }
   }
